@@ -1,3 +1,4 @@
+import java.lang.Math.floor
 import java.lang.Math.tan
 
 fun main() {
@@ -12,7 +13,7 @@ fun main() {
 Подготовка:
 1. Измерить длину своего обычного шага в сантиметрах
 2. Запустить приложение, измеряющее углы. Например "Уровень" в ~Smart ToolBox~, выбрать "Уровень лазера"
-"""
+""",
     )
     val mySizeNormalWalkingPaceSm = 69.0F // мой обычный прогулочный шаг в сантиметрах
     val PI = 3.1415 // число Пи
@@ -35,6 +36,9 @@ fun main() {
     /*    println("tanAngle1 = $tanAngle1")
         println("tanAngle2 = $tanAngle2")*/
 
-    println("\nВысота дерева (объекта) = ${tanAngle1 + tanAngle2}")
+    val resultHeight = floor(tanAngle1 + tanAngle2 * 100.0) / 100.0 // округление до 2х знаков пз
+
+    println("\nВысота дерева (объекта) = ${resultHeight} м")
+    //println("\nВысота дерева (объекта) = ${tanAngle1 + tanAngle2}")
 
 }
