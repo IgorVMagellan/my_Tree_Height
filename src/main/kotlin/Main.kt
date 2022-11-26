@@ -15,30 +15,40 @@ fun main() {
 2. Запустить приложение, измеряющее углы. Например "Уровень" в ~Smart ToolBox~, выбрать "Уровень лазера"
 """,
     )
-    val mySizeNormalWalkingPaceSm = 69.0F // мой обычный прогулочный шаг в сантиметрах
+    val mySizeNormalWalkingPaceSm = 76.0F // мой обычный прогулочный шаг в сантиметрах
     val PI = 3.1415 // число Пи
 
     println("Наведитесь перекрестием на верхушку дерева")
     println("Введите угол, число без знака: ")
-    val radAngle1 = readln().toFloat() * PI / 180 // получить угол в радианах
+    val radAngle1 = (inputCorrectNumber() * PI) / 180
+    //val radAngle1 = readln().toFloat() * PI / 180 // получить угол в радианах
 
     println("Наведитесь перекрестием на основание дерева")
     println("Введите угол: ")
-    val radAngle2 = readln().toFloat() * PI / 180 // получить угол в радианах
+    val radAngle2 = (inputCorrectNumber() * PI) / 180
+ //   val radAngle2 = readln().toFloat() * PI / 180 // получить угол в радианах
 
     println("Дойдите до дерева обычным шагом и введите количество шагов: ")
-    val mySteps = readln()
+    val mySteps = readln().toFloat()  // нет проверки корректости ввода
 
-    val objectDistanceMeter = (mySizeNormalWalkingPaceSm / 100) * mySteps.toFloat()
+    val objectDistanceMeter = (mySizeNormalWalkingPaceSm / 100) * mySteps
     val tanAngle1: Double = tan(radAngle1) * objectDistanceMeter
     val tanAngle2: Double = tan(radAngle2) * objectDistanceMeter
 
-    /*    println("tanAngle1 = $tanAngle1")
-        println("tanAngle2 = $tanAngle2")*/
-
-    val resultHeight = floor(tanAngle1 + tanAngle2 * 100.0) / 100.0 // округление до 2х знаков пз
+    val resultHeight = floor((tanAngle1 + tanAngle2) * 100.0) / 100.0 // округление до 2х знаков пз
 
     println("\nВысота дерева (объекта) = $resultHeight м")
     //println("\nВысота дерева (объекта) = ${tanAngle1 + tanAngle2}")
 
+}
+
+fun inputCorrectNumber():Int {
+    val numInputted = readLine()?.toIntOrNull()
+
+    if (numInputted != null)
+        return(numInputted)
+    else
+        println("Ожидается ввод числа!\nПопробуйте снова.")
+        System.exit(0) // обойдемся без циклов, просто выход из программы
+    return (0)
 }
