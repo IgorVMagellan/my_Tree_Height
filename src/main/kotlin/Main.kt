@@ -7,7 +7,7 @@ fun main() {
         """
         Расчет высоты дерева(объекта) одним из методов тригонометрии 
 Условия: 
-1. Смартфон с откалиброванным акселерометром
+1. Смартфон с откалиброванным на вертикаль акселерометром
 2. Строго горизонтальный взгляд попадает на само дерево (не ниже комля и не выше верхушки) 
 
 Подготовка:
@@ -20,12 +20,12 @@ fun main() {
 
     println("Наведитесь перекрестием на верхушку дерева")
     println("Введите угол, число без знака: ")
-    val radAngle1 = (inputCorrectNumber() * PI) / 180
+    val radAngle1 = (inputValidInteger() * PI) / 180 // получить угол в радианах
     //val radAngle1 = readln().toFloat() * PI / 180 // получить угол в радианах
 
     println("Наведитесь перекрестием на основание дерева")
     println("Введите угол: ")
-    val radAngle2 = (inputCorrectNumber() * PI) / 180
+    val radAngle2 = (inputValidInteger() * PI) / 180 // получить угол в радианах
  //   val radAngle2 = readln().toFloat() * PI / 180 // получить угол в радианах
 
     println("Дойдите до дерева обычным шагом и введите количество шагов: ")
@@ -42,7 +42,7 @@ fun main() {
 
 }
 
-fun inputCorrectNumber():Int {
+fun inputValidInteger():Int {
     val numInputted = readLine()?.toIntOrNull()
 
     if (numInputted != null)
