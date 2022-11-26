@@ -38,7 +38,7 @@ fun main() {
 
     val resultHeight = floor(tanAngle1 + tanAngle2 * 100.0) / 100.0 // округление до 2х знаков пз
 
-    println("\nВысота дерева (объекта) = ${resultHeight} м")
+    println("\nВысота дерева (объекта) = $resultHeight м")
     //println("\nВысота дерева (объекта) = ${tanAngle1 + tanAngle2}")
 
 }
