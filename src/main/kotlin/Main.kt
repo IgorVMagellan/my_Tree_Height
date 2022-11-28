@@ -41,6 +41,8 @@ fun main() {
 }
 
 fun inputValidInteger(): Int {
+    // Возвращает пользовательский ввод, если он Integer и корректен
+    // если нет - возвращает null
     val numInputted = readLine()?.toIntOrNull()
     if (numInputted != null)
         return (numInputted)
