@@ -14,20 +14,20 @@ fun main() {
 1. Измерить длину своего обычного шага в сантиметрах
 2. Запустить приложение, измеряющее углы. Например "Уровень" в ~Smart ToolBox~, выбрать "Уровень лазера"
 """)
-    val mySizeNormalWalkingPaceSm = 76.0F // мой обычный прогулочный шаг в сантиметрах
+    val mySizeNormalWalkingPaceSm = 76.0 // мой обычный прогулочный шаг в сантиметрах
     val numPI = 3.1415 // число Пи
 
     println("Наведитесь перекрестием на верхушку дерева")
     println("Введите угол, целое число без знака: ")
     val radAngle1 = (inputValidInteger() * numPI) / 180 // получить угол в радианах
-    //val radAngle1 = readln().toFloat() * numPI / 180 // получить угол в радианах
 
     println("Наведитесь перекрестием на основание дерева")
     println("Введите угол (целое число): ")
     val radAngle2 = (inputValidInteger() * numPI) / 180 // получить угол в радианах
 
     println("Дойдите до дерева обычным шагом и введите количество шагов: ")
-    val mySteps = readln().toFloat()  // нет проверки корректости ввода
+    println("(допускается нецелое число, через точку)")
+    val mySteps = inputValidDouble() // ввод и проверка корректости ввода
 
     val objectDistanceMeter = (mySizeNormalWalkingPaceSm / 100) * mySteps // мои шаги в метрах
     val tanAngle1: Double = tan(radAngle1) * objectDistanceMeter
@@ -47,7 +47,19 @@ fun inputValidInteger(): Int {
     if (numInputted != null)
         return (numInputted)
     else
-        println("Ожидается ввод числа!\nПопробуйте снова.")
+        println("Ожидается ввод целого числа!\nПопробуйте снова.")
     System.exit(0) // обойдемся без циклов, просто выход из программы
     return (0)
+}
+
+fun inputValidDouble(): Double {
+    // Возвращает пользовательский ввод, если он Double и корректен
+    // если нет - возвращает null
+    val numInputted = readLine()?.toDouble()
+    if (numInputted != null)
+        return (numInputted)
+    else
+        println("Ожидается ввод числа!\nПопробуйте снова.")
+    System.exit(0) // обойдемся без циклов, просто выход из программы
+    return (0.0)
 }
